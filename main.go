@@ -5,7 +5,6 @@ import (
 	"log"
 	"movie-collection/collection"
 	"movie-collection/config"
-	_ "movie-collection/config"
 	"movie-collection/models"
 	"time"
 )
@@ -13,14 +12,13 @@ import (
 func main() {
 	for{
 		now := time.Now()
-		hour, _, _:= now.Clock()
-		if hour==1{
+		hour, min, _:= now.Clock()
+		if (hour==1 || hour==15 )&& min < 10 {
 			run(true)
-			time.Sleep(time.Hour*6)
 		}else {
 			run(false)
-			time.Sleep(time.Minute*10)
 		}
+		time.Sleep(time.Minute*10)
 	}
 }
 
