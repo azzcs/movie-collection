@@ -53,9 +53,9 @@ func listCollection(listChannel chan<- string,isFull bool){
 				row.Scan(&id);
 				if id != ""{
 					isReturn = true
-				}else {
-					listChannel<-"http://www.okzyw.com"+url
 				}
+				listChannel<-"http://www.okzyw.com"+url
+				
 			}
 		}
 
